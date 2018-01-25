@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Josh Freeman
+ * Date: 1/25/2018
+ * Program:
+ * Description: allows the user to guess what number I am thinking of.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +16,18 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Random random = new Random();
-            int randNum = random.Next(0, 100);
             int userGuess = 0;
+            int userNum1 = 0;
+            int userNum2 = 0;
             int totalGuesses = 1;
 
-            Console.WriteLine("I am thinking of a number between 0 and 100.  Guess what it is.");
+            Console.WriteLine("Give me two numbers to start with.");
+            userNum1 = Convert.ToInt32(Console.ReadLine());
+            userNum2 = Convert.ToInt32(Console.ReadLine());
+
+            int randNum = random.Next(userNum1, userNum2);
+
+            Console.WriteLine("I am thinking of a number between " + userNum1 + " and " + userNum2 + " . Guess what it is.");
 
             while (userGuess != randNum)
             {
